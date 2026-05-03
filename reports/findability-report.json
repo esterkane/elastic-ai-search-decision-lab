@@ -1,0 +1,26 @@
+{
+  "generated_at": "sample-before-local-run",
+  "metrics": {
+    "precisionAt1": "Precision@1",
+    "mrrAt3": "MRR@3",
+    "ndcgAt3": "nDCG@3"
+  },
+  "summary": {
+    "baseline_body_title": {
+      "precisionAt1": 0,
+      "mrrAt3": 0,
+      "ndcgAt3": 0
+    },
+    "enriched_metadata": {
+      "precisionAt1": 0,
+      "mrrAt3": 0,
+      "ndcgAt3": 0
+    },
+    "decision_router": {
+      "precisionAt1": 0,
+      "mrrAt3": 0,
+      "ndcgAt3": 0
+    }
+  },
+  "note": "Run npm run evaluate against local Elasticsearch to regenerate this report with live search results."
+}

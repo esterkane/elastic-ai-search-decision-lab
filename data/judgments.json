@@ -1,0 +1,65 @@
+[
+  {
+    "query": "Should I start with BM25, semantic search, hybrid search, or reranking?",
+    "ratings": {
+      "choose-retrieval-strategy": 3,
+      "choose-hybrid-reranking-strategy": 2,
+      "choose-semantic-implementation": 1
+    }
+  },
+  {
+    "query": "How do I choose between semantic_text and the inference API?",
+    "ratings": {
+      "choose-semantic-implementation": 3,
+      "add-semantic-search-existing-index": 1,
+      "choose-retrieval-strategy": 1
+    }
+  },
+  {
+    "query": "When should I use RRF instead of linear retriever weighting?",
+    "ratings": {
+      "choose-hybrid-reranking-strategy": 3,
+      "choose-retrieval-strategy": 1,
+      "evaluate-retrieval-quality": 1
+    }
+  },
+  {
+    "query": "My vector search is slow and uses too much memory. What should I tune?",
+    "ratings": {
+      "tune-vector-search": 3,
+      "evaluate-retrieval-quality": 1,
+      "choose-semantic-implementation": 1
+    }
+  },
+  {
+    "query": "How can I measure if a relevance change improved results?",
+    "ratings": {
+      "evaluate-retrieval-quality": 3,
+      "choose-hybrid-reranking-strategy": 1,
+      "tune-vector-search": 1
+    }
+  },
+  {
+    "query": "Can I add semantic search to an existing BM25 index without downtime?",
+    "ratings": {
+      "add-semantic-search-existing-index": 3,
+      "choose-semantic-implementation": 2,
+      "choose-hybrid-reranking-strategy": 1
+    }
+  },
+  {
+    "query": "The right documents are retrieved but the order is bad. Should I rerank?",
+    "ratings": {
+      "choose-hybrid-reranking-strategy": 3,
+      "add-semantic-search-existing-index": 2,
+      "evaluate-retrieval-quality": 1
+    }
+  },
+  {
+    "query": "Which metric should I use for graded relevance judgments?",
+    "ratings": {
+      "evaluate-retrieval-quality": 3,
+      "tune-vector-search": 1
+    }
+  }
+]

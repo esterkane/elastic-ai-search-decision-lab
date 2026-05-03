@@ -1,0 +1,74 @@
+[
+  {
+    "id": "choose-retrieval-strategy",
+    "source_file": "choose-retrieval-strategy.md",
+    "decision_stage": "retrieval_strategy",
+    "audience": ["search practitioners", "solution architects", "documentation evaluators"],
+    "topics": ["BM25", "semantic search", "hybrid search", "reranking", "retrieval strategy"],
+    "problems": [
+      "choosing between keyword, semantic, hybrid, and reranking approaches",
+      "deciding where to start when relevance requirements are unclear",
+      "matching retrieval strategy to query and corpus characteristics"
+    ]
+  },
+  {
+    "id": "choose-semantic-implementation",
+    "source_file": "choose-semantic-implementation.md",
+    "decision_stage": "semantic_implementation",
+    "audience": ["search practitioners", "platform engineers"],
+    "topics": ["semantic_text", "inference API", "ELSER", "dense_vector", "embeddings"],
+    "problems": [
+      "choosing an Elasticsearch semantic search implementation",
+      "deciding between managed semantic_text and custom embeddings",
+      "understanding when inference API control is needed"
+    ]
+  },
+  {
+    "id": "choose-hybrid-reranking-strategy",
+    "source_file": "choose-hybrid-reranking-strategy.md",
+    "decision_stage": "hybrid_reranking",
+    "audience": ["search practitioners", "relevance engineers"],
+    "topics": ["RRF", "linear retriever", "semantic reranking", "Learning to Rank", "hybrid search"],
+    "problems": [
+      "combining BM25 and semantic retrieval results",
+      "choosing between RRF and linear combination",
+      "fixing result order when candidates are good but ranking is poor"
+    ]
+  },
+  {
+    "id": "tune-vector-search",
+    "source_file": "tune-vector-search.md",
+    "decision_stage": "vector_tuning",
+    "audience": ["search practitioners", "performance engineers"],
+    "topics": ["HNSW", "quantization", "num_candidates", "rescore_vector", "dense_vector", "kNN"],
+    "problems": [
+      "balancing vector recall accuracy, latency, and memory",
+      "choosing approximate versus exact kNN",
+      "tuning num_candidates and rescoring for vector search"
+    ]
+  },
+  {
+    "id": "evaluate-retrieval-quality",
+    "source_file": "evaluate-retrieval-quality.md",
+    "decision_stage": "retrieval_evaluation",
+    "audience": ["search practitioners", "relevance engineers", "documentation evaluators"],
+    "topics": ["judgment sets", "rank evaluation API", "Precision@k", "MRR", "NDCG"],
+    "problems": [
+      "measuring whether retrieval changes improve relevance",
+      "building graded relevance judgment sets",
+      "choosing metrics for retrieval evaluation"
+    ]
+  },
+  {
+    "id": "add-semantic-search-existing-index",
+    "source_file": "add-semantic-search-existing-index.md",
+    "decision_stage": "semantic_migration",
+    "audience": ["search practitioners", "platform engineers", "migration planners"],
+    "topics": ["semantic reranking", "reindex", "alias swap", "semantic_text", "BM25 migration"],
+    "problems": [
+      "adding semantic search to an existing BM25 index",
+      "improving relevance without reindexing",
+      "planning zero-downtime semantic search migration"
+    ]
+  }
+]
