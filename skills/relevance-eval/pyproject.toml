@@ -1,0 +1,20 @@
+[project]
+name = "relevance-eval"
+version = "0.1.0"
+description = "Reusable, offline, dependency-light relevance + faithfulness evaluation skill."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["relevance_eval*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
