@@ -18,6 +18,7 @@ npm run setup               # tsx src/elasticsearch.ts setup — (re)create the 
 npm run index               # tsx src/indexDocs.ts — recreate index + bulk-index the 6 Markdown pages
 npm run search -- "When should I use RRF instead of linear retriever weighting?"
 npm run evaluate            # tsx src/evaluate.ts — writes reports/findability-report.{json,md}
+npm run mcp                 # tsx src/mcp/server.ts — read-only MCP server (stdio) exposing search + route_decision
 npm test                    # vitest run (unit tests in tests/*.test.ts)
 ```
 
@@ -81,6 +82,14 @@ Repo-specific invariants:
   the README/SUMMARY.
 - Pydantic/Zod parity: `judgments.json` and metadata are validated with Zod; keep
   loaders validating rather than trusting raw JSON.
+- **MCP layer is thin and read-only.** `src/mcp/` adapters (`searchTool`,
+  `routeDecisionTool`) must only validate input (Zod), call the existing
+  `searchPages` / `routeDecision`, and return their shaped result with provenance
+  (`id` / `source_file` / `score`) preserved — no business logic, no writes, no new
+  query shapes. Failures return the structured error contract
+  (`{ isError, errorCategory, isRetryable, message, details }`) via `guard`, never a
+  stack trace; an empty result set is a normal success. The decision-router
+  determinism invariant (1) applies unchanged through `route_decision`.
 
 ## Definition of done
 
@@ -93,3 +102,6 @@ Repo-specific invariants:
   still succeed and `reports/findability-report.{json,md}` regenerate without errors.
 - README / SUMMARY updated if behaviour, commands, or strategies changed.
 - No secrets added; `.env` stays gitignored; no hardcoded Elasticsearch credentials.
+- If the MCP layer changed: it stays thin + read-only, tools return the structured
+  error contract (never a stack trace), provenance is preserved, and
+  `tests/mcp.test.ts` (pure tool fns with a fake search dep, no live ES) passes.

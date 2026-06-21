@@ -12,10 +12,12 @@
     "index": "tsx src/indexDocs.ts",
     "search": "tsx src/search.ts",
     "evaluate": "tsx src/evaluate.ts",
+    "mcp": "tsx src/mcp/server.ts",
     "test": "vitest run"
   },
   "dependencies": {
     "@elastic/elasticsearch": "^8.15.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "gray-matter": "^4.0.3",
     "zod": "^3.23.8"
   },

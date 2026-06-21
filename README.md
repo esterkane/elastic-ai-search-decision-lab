@@ -81,6 +81,29 @@ $env:SEARCH_STRATEGY="decision_router"; npm run search -- "Can I add semantic se
 - `How can I measure if a relevance change improved results?`
 - `Can I add semantic search to an existing BM25 index without downtime?`
 
+## Agent Access (MCP)
+
+A **read-only** [Model Context Protocol](https://modelcontextprotocol.io) server
+exposes the search and decision-router core as agent tools, built with the
+official TypeScript SDK. The MCP layer is a set of **thin adapters** over the
+existing `searchPages` and `routeDecision` functions — no business logic, and
+provenance (`id` / `source_file` / `score`) is preserved.
+
+Two tools are exposed:
+
+- `search(query, strategy?, size?)` — runs the `baseline_body_title`,
+  `enriched_metadata` (default), or `decision_router` strategy.
+- `route_decision(query)` — the deterministic regex `DecisionStage` router.
+
+Run it over stdio:
+
+```bash
+npm run mcp
+```
+
+See [`docs/mcp.md`](docs/mcp.md) for the tool schemas, the structured error
+contract, example calls, and client registration.
+
 ## Sample Report Table
 
 | Strategy | Precision@1 | MRR@3 | nDCG@3 |
@@ -103,6 +126,10 @@ src/search.ts
 src/evaluate.ts
 src/metrics.ts
 src/decisionRouter.ts
+src/mcp/tools.ts
+src/mcp/server.ts
+src/mcp/errors.ts
+docs/mcp.md
 reports/findability-report.json
 reports/findability-report.md
 tests/*.test.ts
